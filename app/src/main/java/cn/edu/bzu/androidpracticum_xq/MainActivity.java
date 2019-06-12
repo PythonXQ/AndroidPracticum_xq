@@ -8,9 +8,12 @@ import android.location.LocationListener;
 import android.location.LocationManager;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.view.WindowManager;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -46,12 +49,42 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        //sss
+
+
+        //hideActionBar();
+       // setFullScreen();
+
+        //sss
+
         init(); //初始化
         setPermission();//动态权限
-        //map();//定位
+       // map();//定位
         //initData("滨州市");
         getHour();//根据时间换背景
     }
+
+
+
+    /**
+     * hide action bar
+     */
+    private void hideActionBar() {
+        // Hide UI
+        ActionBar actionBar = getSupportActionBar();
+        if (actionBar != null) {
+            actionBar.hide();
+        }
+    }
+
+    /**
+     * set the activity display in full screen
+     */
+    private void setFullScreen() {
+        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+    }
+
 
 
     private void getHour() {
@@ -158,7 +191,7 @@ public class MainActivity extends AppCompatActivity {
                         Log.i("cs", "解析信息" + String.valueOf(obj));
                         String city = obj.getString("city");
                         Log.i("cs", "当前城市：" + city);
-                        text_city.setText("111111");
+                        text_city.setText(city);
                         initData(city);
                     }
                 } catch (JSONException e) {
