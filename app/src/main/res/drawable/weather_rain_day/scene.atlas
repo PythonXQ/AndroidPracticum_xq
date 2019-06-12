@@ -1,0 +1,13 @@
+
+scene_preview.jpg
+size: 750,1724
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+scene_preview
+  rotate: false
+  xy: 0, 0
+  size: 750, 1724
+  orig: 750, 1724
+  offset: 0, 0
+  index: -1
