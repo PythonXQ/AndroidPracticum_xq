@@ -138,7 +138,9 @@ public class Weather_F_Until {
             case "53":
                 weather="霾";
                 break;
-
+            default:
+                weather="";
+                break;
 
         }
         return weather;

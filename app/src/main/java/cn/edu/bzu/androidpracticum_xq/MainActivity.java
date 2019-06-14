@@ -11,14 +11,21 @@ import android.support.v4.content.ContextCompat;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
+import android.view.animation.AccelerateInterpolator;
+import android.view.animation.Animation;
+import android.view.animation.RotateAnimation;
+import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.gson.Gson;
+import com.google.gson.JsonObject;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.JsonHttpResponseHandler;
 
@@ -26,6 +33,7 @@ import com.loopj.android.http.JsonHttpResponseHandler;
 import org.apache.http.Header;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.w3c.dom.Text;
 
 import java.text.DateFormat;
 
@@ -35,11 +43,30 @@ import java.util.Date;
 import java.util.List;
 
 import cn.edu.bzu.androidpracticum_xq.entity.ResultBean;
+import cn.edu.bzu.androidpracticum_xq.entity.WeatherToday;
+import cn.edu.bzu.androidpracticum_xq.entity.Weather_id;
 
 
 public class MainActivity extends AppCompatActivity {
 
 
+    private TextView text_temperature;
+    private TextView text_weather;
+    private TextView text_wind;
+    private TextView text_dressing_index;
+    private TextView text_dressing_advice;
+    private TextView text_uv_index;
+    private TextView text_comfort_index;
+    private TextView text_wash_index;
+    private TextView text_travel_index;
+    private TextView text_exercise_index;
+    private TextView text_drying_index;
+
+    private TextView text_temp;//当前温度
+    private TextView text_time;//更新时间
+    private TextView text_wind_direction;//风向
+    private TextView text_wind_strength;//风速
+    private TextView text_humidity;//湿度
     private TextView text_city;
     private Date date = new Date();//创建时间
     private LocationManager locationManager;
@@ -65,34 +92,78 @@ public class MainActivity extends AppCompatActivity {
         getHour();//根据时间换背景
     }
 
+    public void sx(View v){
+        ImageButton sx = findViewById(R.id.sx);
+        // map();//定位
+        //initData("滨州市");
+        getHour();//根据时间换背景
 
-
-    /**
-     * hide action bar
-     */
-    private void hideActionBar() {
-        // Hide UI
-        ActionBar actionBar = getSupportActionBar();
-        if (actionBar != null) {
-            actionBar.hide();
-        }
-    }
-
-    /**
-     * set the activity display in full screen
-     */
-    private void setFullScreen() {
-        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        //图片旋转
+        Animation anim =new RotateAnimation(0f, 2880f, Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f);
+        anim.setFillAfter(true); // 设置保持动画最后的状态
+        anim.setDuration(3000); // 设置动画时间
+        anim.setInterpolator(new AccelerateInterpolator()); // 设置插入器
+        anim.setFillAfter(true);// 设置旋转后停止
+        sx.startAnimation(anim);
     }
 
 
 
+
+
+
+    //随机改变背景
     private void getHour() {
-        if (date.getHours() > 6 && date.getHours() < 18) {
-            back.setBackgroundDrawable(ContextCompat.getDrawable(this, R.drawable.previe_default_themes_2));
-        } else {
-            back.setBackgroundDrawable(ContextCompat.getDrawable(this, R.drawable.previe_default_themes_9));
+        int x=1+(int)(Math.random()*14);
+        Log.i("cs", String.valueOf(x));
+        switch (x){
+            case 1:
+                back.setBackgroundDrawable(ContextCompat.getDrawable(this, R.drawable.previe_default_themes_1));
+                break;
+            case 2:
+                back.setBackgroundDrawable(ContextCompat.getDrawable(this, R.drawable.previe_default_themes_2));
+                break;
+            case 3:
+                back.setBackgroundDrawable(ContextCompat.getDrawable(this, R.drawable.previe_default_themes_3));
+                break;
+            case 4:
+                back.setBackgroundDrawable(ContextCompat.getDrawable(this, R.drawable.previe_default_themes_4));
+                break;
+            case 5:
+                back.setBackgroundDrawable(ContextCompat.getDrawable(this, R.drawable.previe_default_themes_5));
+                break;
+            case 6:
+                back.setBackgroundDrawable(ContextCompat.getDrawable(this, R.drawable.previe_default_themes_6));
+                break;
+            case 7:
+                back.setBackgroundDrawable(ContextCompat.getDrawable(this, R.drawable.previe_default_themes_7));
+                break;
+            case 8:
+                back.setBackgroundDrawable(ContextCompat.getDrawable(this, R.drawable.previe_default_themes_8));
+                break;
+            case 9:
+                back.setBackgroundDrawable(ContextCompat.getDrawable(this, R.drawable.previe_default_themes_9));
+                break;
+            case 10:
+                back.setBackgroundDrawable(ContextCompat.getDrawable(this, R.drawable.previe_default_themes_10));
+                break;
+            case 11:
+                back.setBackgroundDrawable(ContextCompat.getDrawable(this, R.drawable.previe_default_themes_11));
+                break;
+            case 12:
+                back.setBackgroundDrawable(ContextCompat.getDrawable(this, R.drawable.previe_default_themes_12));
+                break;
+            case 13:
+                back.setBackgroundDrawable(ContextCompat.getDrawable(this, R.drawable.previe_default_themes_13));
+                break;
+            case 14:
+                back.setBackgroundDrawable(ContextCompat.getDrawable(this, R.drawable.previe_default_themes_14));
+                break;
+            default:
+                back.setBackgroundDrawable(ContextCompat.getDrawable(this, R.drawable.previe_default_themes_1));
+                break;
         }
+
     }
 
     //初始化控件
@@ -100,6 +171,23 @@ public class MainActivity extends AppCompatActivity {
 
         back = findViewById(R.id.back);
         text_city = findViewById(R.id.city);
+        text_humidity = findViewById(R.id.text_humidity);
+        text_temp = findViewById(R.id.text_temp);
+        text_time = findViewById(R.id.text_time);
+        text_wind_direction = findViewById(R.id.text_wind_direction);
+        text_wind_strength = findViewById(R.id.text_wind_strength);
+
+        text_temperature  = findViewById(R.id.text_temperature);
+        text_weather  = findViewById(R.id.text_weather);
+        text_wind  = findViewById(R.id.text_wind);
+        text_dressing_index  = findViewById(R.id.text_dressing_index);
+        text_dressing_advice  = findViewById(R.id.text_dressing_advice);
+        text_uv_index  = findViewById(R.id.text_uv_index);
+        text_comfort_index  = findViewById(R.id.comfort_index);
+        text_wash_index  = findViewById(R.id.text_wash_index);
+        text_travel_index  = findViewById(R.id.text_travel_index);
+        text_exercise_index  = findViewById(R.id.text_exercise_index);
+        text_drying_index  = findViewById(R.id.text_drying_index);
 
     }
 
@@ -128,40 +216,25 @@ public class MainActivity extends AppCompatActivity {
 
         //实现实时更新天气状况
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-            // TODO: Consider calling
-            //    ActivityCompat#requestPermissions
-            // here to request the missing permissions, and then overriding
-            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
-            //                                          int[] grantResults)
-            // to handle the case where the user grants the permission. See the documentation
-            // for ActivityCompat#requestPermissions for more details.
             return;
         }
         //实时更新地理位置，每隔20分钟一次
         locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 1200000, 1, new LocationListener() {
             @Override
             public void onLocationChanged(Location location) {
-
-
                 Log.i("cs", "实时位置更新：" + String.valueOf(location.getLongitude()));
                 Log.i("cs", "实时位置更新：" + String.valueOf(location.getLatitude()));
                 MapData(location.getLongitude(), location.getLatitude());
 
             }
-
             @Override
             public void onStatusChanged(String provider, int status, Bundle extras) {
-
             }
-
             @Override
             public void onProviderEnabled(String provider) {
-
             }
-
             @Override
             public void onProviderDisabled(String provider) {
-
             }
         });
     }
@@ -225,12 +298,60 @@ public class MainActivity extends AppCompatActivity {
                     int resu = response.getInt("resultcode");
                     if (resu == 200) {
                         JSONObject result = response.getJSONObject("result");
+
+                        //解析实时天气
                         JSONObject sk = result.getJSONObject("sk");
-//                        text1.setText("温度：" + sk.getString("temp") + "℃");
-//                        text2.setText("风向：" + sk.getString("wind_direction"));
-//                        text3.setText("风速：" + sk.getString("wind_strength"));
-//                        text4.setText("湿度：" + sk.getString("humidity"));
-//                        text5.setText("时间：" + sk.getString("time"));
+                        text_temp.setText(sk.getString("temp") + "°");
+                        text_wind_direction.setText("风向：" + sk.getString("wind_direction"));
+                        text_wind_strength.setText("风速：" + sk.getString("wind_strength"));
+                        text_humidity.setText("湿度：" + sk.getString("humidity"));
+                        text_time.setText(sk.getString("time")+" 更新");
+
+                        //解析当天天气
+
+                        JSONObject today = result.getJSONObject("today");
+                        String strday = String.valueOf(today);
+                        Log.i("cs","today："+strday);
+                        Gson gson = new Gson();
+                        WeatherToday   weatherToday = gson.fromJson(strday, WeatherToday.class);
+
+                        text_temperature.setText("今日温度："+weatherToday.getTemperature());
+                        text_weather.setText("今日天气："+weatherToday.getWeather());
+                        text_wind.setText("风向风速："+weatherToday.getWind());
+                        text_dressing_index.setText("穿衣指数："+weatherToday.getDressing_index());
+                        text_dressing_advice.setText("穿衣建议："+weatherToday.getDressing_advice());
+                        text_uv_index.setText("紫外线强度："+weatherToday.getUv_index());
+                        text_comfort_index.setText("舒适度指数："+weatherToday.getComfort_index());
+                        text_wash_index.setText("洗车指数："+weatherToday.getWash_index());
+                        text_travel_index.setText("旅游指数："+weatherToday.getTravel_index());
+                        text_exercise_index.setText("晨练指数："+weatherToday.getExercise_index());
+                        text_drying_index.setText("干燥指数："+weatherToday.getDrying_index());
+
+                        if(TextUtils.isEmpty(weatherToday.getDressing_advice())){
+                            text_dressing_advice.setVisibility(View.GONE);
+                        }
+                        if(TextUtils.isEmpty(weatherToday.getDressing_index())){
+                            text_dressing_index.setVisibility(View.GONE);
+                        }
+                        if(TextUtils.isEmpty(weatherToday.getUv_index())){
+                            text_uv_index.setVisibility(View.GONE);
+                        }
+                        if(TextUtils.isEmpty(weatherToday.getComfort_index())){
+                            text_comfort_index.setVisibility(View.GONE);
+                        }
+                        if(TextUtils.isEmpty(weatherToday.getWash_index())){
+                            text_wash_index.setVisibility(View.GONE);
+                        }
+                        if(TextUtils.isEmpty(weatherToday.getTravel_index())){
+                            text_travel_index.setVisibility(View.GONE);
+                        }
+                        if(TextUtils.isEmpty(weatherToday.getExercise_index())){
+                            text_exercise_index.setVisibility(View.GONE);
+                        }
+                        if(TextUtils.isEmpty(weatherToday.getDrying_index())){
+                            text_drying_index.setVisibility(View.GONE);
+                        }
+
 
                         //解析未来七天的天气
                         JSONObject future = result.getJSONObject("future");
@@ -254,16 +375,9 @@ public class MainActivity extends AppCompatActivity {
 
                             Log.i("cs", account.toString());
                             weatherlist.add(account);
-
-
-                        }
-
-                        for (int i = 0; i < weatherlist.size(); i++) {
-                            Log.i("cs", String.valueOf(weatherlist.get(i)));
                         }
 
                     }
-
 
                 } catch (JSONException e) {
                     e.printStackTrace();
