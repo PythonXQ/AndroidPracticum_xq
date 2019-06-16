@@ -32,7 +32,7 @@
 
         android:orientation="horizontal"
         android:paddingTop="-50dp"
-        android:background="#7fd99494"
+        android:background="#6f003380"
         >
 
 
@@ -108,7 +108,7 @@
         android:orientation="vertical"
         android:padding="15dp"
 
-        android:background="#7a80a0ff"
+        android:background="#4a0047b3"
         >
 
         <TextView

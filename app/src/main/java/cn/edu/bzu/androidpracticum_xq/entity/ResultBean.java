@@ -14,7 +14,6 @@ public class ResultBean {
     public ResultBean(String temperature, String weather, Weather_id weather_id, String wind, String week, String date) {
         this.temperature = temperature;
         this.weather = weather;
-        this.weather_id = weather_id;
         this.wind = wind;
         this.week = week;
         this.date = date;

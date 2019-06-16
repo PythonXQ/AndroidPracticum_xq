@@ -1,6 +1,7 @@
 package cn.edu.bzu.androidpracticum_xq;
 
 import android.Manifest;
+import android.app.ActivityGroup;
 import android.content.Context;
 import android.content.pm.PackageManager;
 import android.location.Location;
@@ -47,7 +48,7 @@ import cn.edu.bzu.androidpracticum_xq.entity.WeatherToday;
 import cn.edu.bzu.androidpracticum_xq.entity.Weather_id;
 
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends ActivityGroup {
 
 
     private TextView text_temperature;
@@ -87,14 +88,14 @@ public class MainActivity extends AppCompatActivity {
 
         init(); //初始化
         setPermission();//动态权限
-       // map();//定位
+        map();//定位
         //initData("滨州市");
         getHour();//根据时间换背景
     }
 
     public void sx(View v){
         ImageButton sx = findViewById(R.id.sx);
-        // map();//定位
+        map();//定位
         //initData("滨州市");
         getHour();//根据时间换背景
 
