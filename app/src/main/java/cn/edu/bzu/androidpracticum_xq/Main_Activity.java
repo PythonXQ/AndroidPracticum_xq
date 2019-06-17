@@ -2,6 +2,7 @@ package cn.edu.bzu.androidpracticum_xq;
 
 import android.Manifest;
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.location.LocationListener;
@@ -197,6 +198,21 @@ public class Main_Activity extends AppCompatActivity {
         shuaxin();
     }
 
+    //导航栏左按钮
+    public void left(View view) {
+        Intent intent = new Intent(this,Left_Activity.class);
+        startActivity(intent);
+    }
+    //导航栏中按钮
+    public void center(View view) {
+
+    }
+    //导航栏右按钮
+    public void right(View view) {
+        Intent intent = new Intent(this,Right_Activity.class);
+        startActivity(intent);
+    }
+
     //搜索天气
     public void sousuo(View view) {
         initE();
@@ -216,6 +232,8 @@ public class Main_Activity extends AppCompatActivity {
 
     }
 
+
+
     ////图片旋转
     private void shuaxin(){
         ImageButton sx = main.findViewById(R.id.sx);
@@ -233,7 +251,7 @@ public class Main_Activity extends AppCompatActivity {
     private void getHour() {
         int x=1+(int)(Math.random()*14);
         Log.i("cs", String.valueOf(x));
-        back.setBackgroundDrawable(ContextCompat.getDrawable(this, backDra_list.get(x)));
+        back.setBackgroundDrawable(ContextCompat.getDrawable(this, backDra_list.get(x-1)));
     }
 
     //定位页面初始化控件
@@ -596,7 +614,4 @@ public class Main_Activity extends AppCompatActivity {
 
 
 
-
-
-
-    }
+}
