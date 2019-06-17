@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="50dp"
     android:orientation="horizontal"
-    android:background="#4af2f2f2"
+    android:background="#4affff"
     android:layout_gravity="bottom"
     >
 
@@ -18,12 +18,12 @@
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/weather_cloud_5"/>
+            android:background="@drawable/else_32"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="天气"
+            android:text="其他查询"
             android:textColor="#000000"
 
             />
@@ -66,12 +66,12 @@
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/weather_cloud_5"/>
+            android:background="@drawable/news_32px"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="天气"
+            android:text="资讯"
             android:textColor="#000000"
 
             />

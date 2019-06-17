@@ -64,7 +64,7 @@ public class Mian {
     private DingweiUntil dingweiUntil;
 
     private JSONObject result;
-    public Mian(Context context, double mp1, double mp2) {
+    public Mian() {
 
         this.context = context;
         this.mp1 = mp1;
@@ -74,53 +74,13 @@ public class Mian {
 
     }
 
-    public void main(Context context, double mp1, double mp2){
-        this.context = context;
-        this.mp1 = mp1;
-        this.mp2 = mp2;
-        main = View.inflate(context, R.layout.activity_main,null);
-        list = View.inflate(context, R.layout.activity_future_list,null);
-
-        shuaxin();
+    public void Main(Context context,JSONObject result){
+        main = View.inflate(context,R.layout.activity_main,null);
         getHour();
-        back();
-
-
-    }
-    public void mainshuxin(Context context, double mp1, double mp2){
-        this.context = context;
-        this.mp1 = mp1;
-        this.mp2 = mp2;
-        back();
-
+        initD();
         shuaxin();
-        getHour();
-    }
-
-    private void back(){
-        //背景添加
-        backDra_list = new ArrayList<Integer>();
-        backDra_list.add(R.drawable.previe_default_themes_1);
-        backDra_list.add(R.drawable.previe_default_themes_2);
-        backDra_list.add(R.drawable.previe_default_themes_3);
-        backDra_list.add(R.drawable.previe_default_themes_4);
-        backDra_list.add(R.drawable.previe_default_themes_5);
-        backDra_list.add(R.drawable.previe_default_themes_6);
-        backDra_list.add(R.drawable.previe_default_themes_7);
-        backDra_list.add(R.drawable.previe_default_themes_8);
-        backDra_list.add(R.drawable.previe_default_themes_9);
-        backDra_list.add(R.drawable.previe_default_themes_10);
-        backDra_list.add(R.drawable.previe_default_themes_11);
-        backDra_list.add(R.drawable.previe_default_themes_12);
-        backDra_list.add(R.drawable.previe_default_themes_13);
-        backDra_list.add(R.drawable.previe_default_themes_14);
-    }
-
-    public void MainActity(){
-
-
-
         //解析实时天气
+        back();
         JSONObject sk = null;
         try {
             sk = result.getJSONObject("sk");
@@ -173,8 +133,6 @@ public class Mian {
             if(TextUtils.isEmpty(weatherToday.getDrying_index())){
                 text_drying_index.setVisibility(View.GONE);
             }
-
-
             //解析未来七天的天气
             JSONObject future = result.getJSONObject("future");
             DateFormat bf = new SimpleDateFormat("yyyyMMdd");
@@ -202,9 +160,7 @@ public class Mian {
             ListView lvNews = list.findViewById(R.id.lv_weather);
             LinearLayout  loading = list.findViewById(R.id.loading);
             loading.setVerticalGravity(View.INVISIBLE);
-            lvNews.setAdapter(new Liseview_SPQ(weatherlist, context));
-
-
+            lvNews.setAdapter(new Liseview_SPQ(weatherlist,context));
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -213,14 +169,38 @@ public class Mian {
 
     }
 
+    //定位页面初始化控件
+    public void initD() {
+        back = main.findViewById(R.id.back);
+        text_city = main.findViewById(R.id.city);
+        text_humidity = main.findViewById(R.id.text_humidity);
+        text_temp = main.findViewById(R.id.text_temp);
+        text_time = main.findViewById(R.id.text_time);
+        text_wind_direction = main.findViewById(R.id.text_wind_direction);
+        text_wind_strength = main.findViewById(R.id.text_wind_strength);
+
+        text_temperature = main.findViewById(R.id.text_temperature);
+        text_weather = main.findViewById(R.id.text_weather);
+        text_wind = main.findViewById(R.id.text_wind);
+        text_dressing_index = main.findViewById(R.id.text_dressing_index);
+        text_dressing_advice = main.findViewById(R.id.text_dressing_advice);
+        text_uv_index = main.findViewById(R.id.text_uv_index);
+        text_comfort_index = main.findViewById(R.id.comfort_index);
+        text_wash_index = main.findViewById(R.id.text_wash_index);
+        text_travel_index = main.findViewById(R.id.text_travel_index);
+        text_exercise_index = main.findViewById(R.id.text_exercise_index);
+        text_drying_index = main.findViewById(R.id.text_drying_index);
+
+    }
+
     //随机定位改变背景
     private void getHour() {
         int x=1+(int)(Math.random()*14);
         Log.i("cs", String.valueOf(x));
-        back.setBackgroundDrawable(ContextCompat.getDrawable(context, backDra_list.get(x)));
+        back.setBackgroundDrawable(ContextCompat.getDrawable(context, backDra_list.get(x-1)));
     }
 
-    ////图片旋转
+        ////图片旋转
     private void shuaxin(){
         ImageButton sx = main.findViewById(R.id.sx);
         //图片旋转
@@ -231,4 +211,27 @@ public class Mian {
         anim.setFillAfter(true);// 设置旋转后停止
         sx.startAnimation(anim);
     }
+
+
+
+    private void back(){
+        //背景添加
+        backDra_list = new ArrayList<Integer>();
+        backDra_list.add(R.drawable.previe_default_themes_1);
+        backDra_list.add(R.drawable.previe_default_themes_2);
+        backDra_list.add(R.drawable.previe_default_themes_3);
+        backDra_list.add(R.drawable.previe_default_themes_4);
+        backDra_list.add(R.drawable.previe_default_themes_5);
+        backDra_list.add(R.drawable.previe_default_themes_6);
+        backDra_list.add(R.drawable.previe_default_themes_7);
+        backDra_list.add(R.drawable.previe_default_themes_8);
+        backDra_list.add(R.drawable.previe_default_themes_9);
+        backDra_list.add(R.drawable.previe_default_themes_10);
+        backDra_list.add(R.drawable.previe_default_themes_11);
+        backDra_list.add(R.drawable.previe_default_themes_12);
+        backDra_list.add(R.drawable.previe_default_themes_13);
+        backDra_list.add(R.drawable.previe_default_themes_14);
+    }
+
+
 }
