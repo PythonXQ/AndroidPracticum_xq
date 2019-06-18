@@ -11,11 +11,11 @@
 
     <ImageButton
         android:id="@+id/sx"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_marginLeft="20dp"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_marginLeft="25dp"
         android:layout_gravity="center"
-        android:background="@drawable/sx"
+        android:background="@drawable/shuaxin"
         android:onClick="sx"/>
 
     <ImageView

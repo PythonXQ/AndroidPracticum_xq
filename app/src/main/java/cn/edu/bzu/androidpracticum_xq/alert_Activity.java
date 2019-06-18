@@ -1,67 +1,40 @@
 package cn.edu.bzu.androidpracticum_xq;
 
 import android.content.Intent;
-import android.support.annotation.NonNull;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.ViewParent;
-import android.view.animation.AccelerateInterpolator;
-import android.view.animation.Animation;
-import android.view.animation.RotateAnimation;
-import android.widget.ImageButton;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.ListView;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import cn.edu.bzu.androidpracticum_xq.Controller.WebviewController;
 
-public class Right_Activity extends AppCompatActivity {
+public class alert_Activity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_right_main);
+        setContentView(R.layout.activity_alert_);
+
         main();
-
-        ImageView imageView = findViewById(R.id.d1_center);
-        imageView.setBackgroundResource(R.drawable.tainqi2);
-        ImageView imageView1 = findViewById(R.id.d1_left);
-        imageView1.setBackgroundResource(R.drawable.qita2);
-        ImageView imageView2 = findViewById(R.id.d1_right);
-        imageView2.setBackgroundResource(R.drawable.zixun_1);
-
     }
-    //导航栏左按钮
-    public void left(View view) {
-        Intent intent = new Intent(this,Left_Activity.class);
-        startActivity(intent);
+    public void fanhui(View view) {
+        Intent intent3 = new Intent(this,Left_Activity.class);
+        startActivity(intent3);
         overridePendingTransition(0, 0);
-
     }
-    //导航栏中按钮
-    public void center(View view) {
-        Intent intent = new Intent(this,Main_Activity.class);
-        startActivity(intent);
-        overridePendingTransition(0, 0);
 
-}
-    //导航栏右按钮
-    public void right(View view) {
 
-    }
 
 
     public void main(){
-        ViewPager viewParent = findViewById(R.id.webviewpage);
+        ViewPager viewParent = findViewById(R.id.alert_viewpage);
         final List<View> viewList = new ArrayList<>();
-        viewList.add(new WebviewController(Right_Activity.this).getView("https://m.tianqi.com/news/#\n  "));
+        viewList.add(new WebviewController(alert_Activity.this).getView("http://www.help.bj.cn/weather/warning.html?id=101060101"));
 
         PagerAdapter pagerAdapter = new PagerAdapter() {
             @Override
@@ -94,8 +67,4 @@ public class Right_Activity extends AppCompatActivity {
         //初始化显示界面
         viewParent.setCurrentItem(0);
     }
-
-
-
-
 }

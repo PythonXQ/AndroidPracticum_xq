@@ -6,21 +6,200 @@
     android:layout_height="match_parent"
     tools:context=".Left_Activity"
     android:orientation="vertical"
+    android:background="@drawable/previe_default_themes_1"
     >
 
+    <!--最外层-->
     <LinearLayout
+        android:layout_marginTop="20dp"
         android:layout_weight="1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        >
 
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="50dp"
-            android:gravity="center"
-            android:text="1"/>
+         <!--第一行-->
+        <LinearLayout
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginBottom="5dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:layout_width="match_parent">
+
+            <!--左边-->
+            <LinearLayout
+
+                android:layout_marginRight="4dp"
+                android:background="@drawable/border"
+                android:layout_weight="1"
+                android:paddingTop="15dp"
+                android:paddingLeft="25dp"
+                android:paddingRight="25dp"
+                android:paddingBottom="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:onClick="shui"
+                android:orientation="vertical"
+                android:gravity="center">
+                <ImageView
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/shui1"/>
+                <TextView
+                    android:layout_marginTop="8dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="水质量"
+                    android:textColor="#ffff"
+                    android:gravity="center"
+                    android:textSize="30dp"/>
+            </LinearLayout>
+
+            <!--右边-->
+            <LinearLayout
+                android:layout_marginLeft="4dp"
+                android:background="@drawable/border"
+                android:gravity="center"
+                android:paddingTop="0dp"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:paddingBottom="13dp"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_column="1"
+                android:onClick="kongqi"
+                android:orientation="vertical"
+                >
+
+             <ImageView
+                 android:layout_weight="1"
+                 android:layout_width="match_parent"
+                 android:layout_height="match_parent"
+                 android:background="@drawable/pm25"/>
+
+                <TextView
+                    android:layout_marginTop="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="空气质量"
+                    android:textColor="#ffff"
+                    android:gravity="center"
+                    android:textSize="25dp"/>
+
+            </LinearLayout>
+        </LinearLayout>
+
+
+
+        <!--第二行-->
+        <LinearLayout
+            android:layout_marginLeft="6dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginTop="5dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:layout_width="match_parent">
+
+            <!--左边-->
+            <LinearLayout
+                android:layout_marginRight="4dp"
+                android:background="@drawable/border"
+                android:layout_weight="1"
+                android:paddingTop="15dp"
+                android:paddingLeft="25dp"
+                android:paddingRight="25dp"
+                android:paddingBottom="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:onClick="yujing"
+                android:orientation="vertical"
+                android:gravity="center">
+                <ImageView
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/yujin"/>
+                <TextView
+                    android:layout_marginTop="8dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="天气预警"
+                    android:textColor="#ffff"
+                    android:gravity="center"
+                    android:textSize="30dp"/>
+            </LinearLayout>
+
+            <!--右边-->
+            <LinearLayout
+                android:layout_marginLeft="4dp"
+                android:background="@drawable/border"
+                android:gravity="center"
+                android:paddingTop="10dp"
+                android:paddingLeft="25dp"
+                android:paddingRight="25dp"
+                android:paddingBottom="13dp"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_column="1"
+                android:onClick="buttonnull"
+                android:orientation="vertical"
+                >
+
+                <ImageView
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/kaifa"/>
+
+                <TextView
+                    android:layout_marginTop="8dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="开发中......."
+                    android:textColor="#ffff"
+                    android:gravity="center"
+                    android:textSize="25dp"/>
+
+            </LinearLayout>
+        </LinearLayout>
+
+
+        <!--第三行-->
+        <LinearLayout
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:layout_width="match_parent">
+
+            <!--左边-->
+
+
+            <!--右边-->
+
+        </LinearLayout>
+
+        <!--第四行-->
+        <LinearLayout
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:layout_width="match_parent">
+
+            <!--左边-->
+
+
+            <!--右边-->
+
+        </LinearLayout>
+
+
+
+
+    <!--最外层-->
     </LinearLayout>
 
 

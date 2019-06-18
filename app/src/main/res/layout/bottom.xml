@@ -3,11 +3,14 @@
     android:layout_width="match_parent"
     android:layout_height="50dp"
     android:orientation="horizontal"
-    android:background="#4affff"
+    android:background="#005aaae7"
     android:layout_gravity="bottom"
+    android:paddingTop="5dp"
+    android:layout_marginBottom="5dp"
     >
 
     <LinearLayout
+
         android:onClick="left"
         android:layout_weight="1"
         android:layout_width="wrap_content"
@@ -16,15 +19,17 @@
         android:gravity="center">
 
         <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/else_32"/>
+            android:id="@+id/d_left"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:background="@drawable/qita1"/>
 
         <TextView
+            android:layout_marginTop="5dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="其他查询"
-            android:textColor="#000000"
+            android:textColor="#ffff"
 
             />
 
@@ -40,15 +45,17 @@
         android:gravity="center">
 
         <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/weather_cloud_5"/>
+            android:id="@+id/d_center"
+            android:layout_width="30dp"
+            android:layout_height="20dp"
+            android:background="@drawable/tianqi1"/>
 
         <TextView
+            android:layout_marginTop="5dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="天气"
-            android:textColor="#000000"
+            android:textColor="#ffff"
 
             />
 
@@ -64,15 +71,17 @@
         android:gravity="center">
 
         <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/news_32px"/>
+            android:id="@+id/d_right"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:background="@drawable/zixun"/>
 
         <TextView
+            android:layout_marginTop="5dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="资讯"
-            android:textColor="#000000"
+            android:textColor="#ffff"
 
             />
 

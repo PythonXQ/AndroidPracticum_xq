@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".water_Activity" android:orientation="vertical"
+    android:background="@drawable/previe_default_themes_1">
+
+    <include layout="@layout/title_2"/>
+
+    <!--搜索框-->
+    <LinearLayout
+        android:id="@+id/wat_lin"
+        android:layout_width="match_parent"
+        android:layout_height="600dp"
+        android:layout_marginTop="40dp"
+        android:orientation="vertical"
+        android:visibility="visible"
+        android:gravity="center"
+        android:onClick="sousuowater">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/sousuoda"/>
+        <TextView
+            android:layout_marginTop="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="选择检测点"
+            android:textSize="30dp"/>
+
+        <!--搜索框-->
+    </LinearLayout>
+
+
+    <!--结果展示框-->
+    <LinearLayout
+        android:visibility="gone"
+        android:id="@+id/wat_lin2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_marginTop="40dp"
+        android:layout_marginLeft="40dp"
+        >
+
+        <TextView
+            android:id="@+id/w_state"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#ffff"
+            android:text="监测站点：湖北宜昌南津关"
+            android:textSize="26dp"
+            android:layout_marginTop="10dp"
+            />
+
+        <TextView
+            android:id="@+id/w_ph"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#ffff"
+            android:text="PH：73"
+            android:textSize="20dp"
+            android:layout_marginTop="10dp"
+            />
+        <TextView
+            android:id="@+id/w_phquality"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#ffff"
+            android:text="PH水质类别：98"
+            android:textSize="20dp"
+            android:layout_marginTop="10dp"
+            />
+
+        <TextView
+            android:id="@+id/w_oxygen"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#ffff"
+            android:text="溶解氧：湖北宜昌南津关"
+            android:textSize="20dp"
+            android:layout_marginTop="10dp"
+            />
+
+        <TextView
+            android:id="@+id/w_oxygenquality"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#ffff"
+            android:text="溶解氧水质类别：73"
+            android:textSize="20dp"
+            android:layout_marginTop="10dp"
+            />
+        <TextView
+            android:id="@+id/w_nitrogen"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#ffff"
+            android:text="氨氮：98"
+            android:textSize="20dp"
+            android:layout_marginTop="10dp"
+            />
+
+        <TextView
+            android:id="@+id/w_nitrogenquality"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#ffff"
+            android:text="氨氮水质类别：湖北宜昌南津关"
+            android:textSize="20dp"
+            android:layout_marginTop="10dp"
+            />
+
+        <TextView
+            android:id="@+id/w_permangan"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#ffff"
+            android:text="高锰酸钾指数：73"
+            android:textSize="20dp"
+            android:layout_marginTop="10dp"
+            />
+        <TextView
+            android:id="@+id/w_permanganquality"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#ffff"
+            android:text="高锰酸钾指数水质类别：98"
+            android:textSize="20dp"
+            android:layout_marginTop="10dp"
+            />
+
+        <TextView
+            android:id="@+id/w_section"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#ffff"
+            android:text="断面属性：湖北宜昌南津关"
+            android:textSize="20dp"
+            android:layout_marginTop="10dp"
+            />
+
+        <TextView
+            android:id="@+id/w_belong"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#ffff"
+            android:text="属于流域：98"
+            android:textSize="20dp"
+            android:layout_marginTop="10dp"
+            />
+
+
+
+
+        <TextView
+
+            android:id="@+id/w_time"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#ffff"
+            android:text="更新时间："
+            android:textSize="15dp"
+            android:layout_marginTop="30dp"
+            />
+
+        <TextView
+            android:id="@+id/w_profile"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#ffff"
+            android:text="监测站点简介：73"
+            android:textSize="13dp"
+            android:layout_marginTop="10dp"
+            />
+
+
+
+
+
+
+    </LinearLayout>
+
+
+</LinearLayout>

@@ -53,37 +53,54 @@ public class Mian {
     private TextView text_humidity;//湿度
     private TextView text_city;
     private Date date = new Date();//创建时间
-    private LocationManager locationManager;
-    private LinearLayout back;
     private View main,list;
     private Context context;
     private double mp1,mp2;
     private List<ResultBean> weatherlist;
-
-    private Weather weather;
-    private DingweiUntil dingweiUntil;
-
-    private JSONObject result;
-    public Mian() {
-
-        this.context = context;
-        this.mp1 = mp1;
-        this.mp2 = mp2;
+    private ImageButton sx;
 
 
 
-    }
 
     public void Main(Context context,JSONObject result){
         main = View.inflate(context,R.layout.activity_main,null);
-        getHour();
-        initD();
-        shuaxin();
-        //解析实时天气
-        back();
+        list = View.inflate(context,R.layout.activity_future_list,null);
+
+        sx = main.findViewById(R.id.sx);
+        text_city = main.findViewById(R.id.city);
+        text_humidity = main.findViewById(R.id.text_humidity);
+        text_temp = main.findViewById(R.id.text_temp);
+        text_time = main.findViewById(R.id.text_time);
+        text_wind_direction = main.findViewById(R.id.text_wind_direction);
+        text_wind_strength = main.findViewById(R.id.text_wind_strength);
+
+        text_temperature = main.findViewById(R.id.text_temperature);
+        text_weather = main.findViewById(R.id.text_weather);
+        text_wind = main.findViewById(R.id.text_wind);
+        text_dressing_index = main.findViewById(R.id.text_dressing_index);
+        text_dressing_advice = main.findViewById(R.id.text_dressing_advice);
+        text_uv_index = main.findViewById(R.id.text_uv_index);
+        text_comfort_index = main.findViewById(R.id.comfort_index);
+        text_wash_index = main.findViewById(R.id.text_wash_index);
+        text_travel_index = main.findViewById(R.id.text_travel_index);
+        text_exercise_index = main.findViewById(R.id.text_exercise_index);
+        text_drying_index = main.findViewById(R.id.text_drying_index);
+        Log.i("ck", String.valueOf(text_temp));
+
+        Animation anim =new RotateAnimation(0f, 2880f, Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f);
+        anim.setFillAfter(true); // 设置保持动画最后的状态
+        anim.setDuration(3000); // 设置动画时间
+        anim.setInterpolator(new AccelerateInterpolator()); // 设置插入器
+        anim.setFillAfter(true);// 设置旋转后停止
+        sx.startAnimation(anim);
+
+        Log.i("ck", String.valueOf(sx));
+                //解析实时天气
         JSONObject sk = null;
+        Log.i("ck", String.valueOf(result));
         try {
             sk = result.getJSONObject("sk");
+            Log.i("ck", String.valueOf(sk));
             text_temp.setText(sk.getString("temp") + "°");
             text_wind_direction.setText("风向：" + sk.getString("wind_direction"));
             text_wind_strength.setText("风速：" + sk.getString("wind_strength"));
@@ -171,67 +188,22 @@ public class Mian {
 
     //定位页面初始化控件
     public void initD() {
-        back = main.findViewById(R.id.back);
-        text_city = main.findViewById(R.id.city);
-        text_humidity = main.findViewById(R.id.text_humidity);
-        text_temp = main.findViewById(R.id.text_temp);
-        text_time = main.findViewById(R.id.text_time);
-        text_wind_direction = main.findViewById(R.id.text_wind_direction);
-        text_wind_strength = main.findViewById(R.id.text_wind_strength);
+        //back = main.findViewById(R.id.back);
 
-        text_temperature = main.findViewById(R.id.text_temperature);
-        text_weather = main.findViewById(R.id.text_weather);
-        text_wind = main.findViewById(R.id.text_wind);
-        text_dressing_index = main.findViewById(R.id.text_dressing_index);
-        text_dressing_advice = main.findViewById(R.id.text_dressing_advice);
-        text_uv_index = main.findViewById(R.id.text_uv_index);
-        text_comfort_index = main.findViewById(R.id.comfort_index);
-        text_wash_index = main.findViewById(R.id.text_wash_index);
-        text_travel_index = main.findViewById(R.id.text_travel_index);
-        text_exercise_index = main.findViewById(R.id.text_exercise_index);
-        text_drying_index = main.findViewById(R.id.text_drying_index);
 
     }
 
-    //随机定位改变背景
-    private void getHour() {
-        int x=1+(int)(Math.random()*14);
-        Log.i("cs", String.valueOf(x));
-        back.setBackgroundDrawable(ContextCompat.getDrawable(context, backDra_list.get(x-1)));
-    }
+
 
         ////图片旋转
     private void shuaxin(){
-        ImageButton sx = main.findViewById(R.id.sx);
         //图片旋转
-        Animation anim =new RotateAnimation(0f, 2880f, Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f);
-        anim.setFillAfter(true); // 设置保持动画最后的状态
-        anim.setDuration(3000); // 设置动画时间
-        anim.setInterpolator(new AccelerateInterpolator()); // 设置插入器
-        anim.setFillAfter(true);// 设置旋转后停止
-        sx.startAnimation(anim);
+
     }
 
 
 
-    private void back(){
-        //背景添加
-        backDra_list = new ArrayList<Integer>();
-        backDra_list.add(R.drawable.previe_default_themes_1);
-        backDra_list.add(R.drawable.previe_default_themes_2);
-        backDra_list.add(R.drawable.previe_default_themes_3);
-        backDra_list.add(R.drawable.previe_default_themes_4);
-        backDra_list.add(R.drawable.previe_default_themes_5);
-        backDra_list.add(R.drawable.previe_default_themes_6);
-        backDra_list.add(R.drawable.previe_default_themes_7);
-        backDra_list.add(R.drawable.previe_default_themes_8);
-        backDra_list.add(R.drawable.previe_default_themes_9);
-        backDra_list.add(R.drawable.previe_default_themes_10);
-        backDra_list.add(R.drawable.previe_default_themes_11);
-        backDra_list.add(R.drawable.previe_default_themes_12);
-        backDra_list.add(R.drawable.previe_default_themes_13);
-        backDra_list.add(R.drawable.previe_default_themes_14);
-    }
+
 
 
 }

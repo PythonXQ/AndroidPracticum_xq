@@ -12,14 +12,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#6a80a0ff"
     android:id="@+id/back"
     >
 
+    <!--搜索框-->
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:background="#6f002966">
+        android:layout_height="wrap_content"
+        >
 
         <LinearLayout
 
@@ -27,38 +27,87 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:gravity="center">
+
             <LinearLayout
+
                 android:id="@+id/edit_lin"
                 android:layout_width="match_parent"
-                android:layout_height="100dp"
-                android:layout_marginTop="20dp">
+                android:layout_height="600dp"
+                android:layout_marginTop="20dp"
+                android:orientation="vertical"
+                android:gravity="center">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/suosuoda1"/>
 
                 <EditText
+
+                    android:layout_marginTop="20dp"
                     android:textSize="20dp"
                     android:id="@+id/edit_edit"
-                    android:layout_weight="1"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+
+                    android:layout_width="380dp"
+                    android:layout_height="50dp"
                     android:hint="请输入城市名"
                     />
-                <Button
-                    android:layout_margin="5dp"
-                    android:layout_width="45dp"
-                    android:layout_height="45dp"
-                    android:background="@drawable/search_48px"
+                <LinearLayout
+
+                    android:layout_marginTop="15dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="center"
                     android:onClick="sousuo"
-                    />
+                    android:background="@drawable/border">
+                    <ImageView
+
+                        android:layout_width="45dp"
+                        android:layout_height="45dp"
+                        android:background="@drawable/sousu"
+
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="搜索"
+                        android:textColor="#ffff"
+                        android:textSize="18dp"/>
+                </LinearLayout>
+
+
+
             </LinearLayout>
 
-            <TextView
-                android:id="@+id/edit_text"
-                android:layout_marginLeft="180dp"
+            <LinearLayout
+                android:layout_marginTop="5dp"
+                android:id="@+id/linadd"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:orientation="horizontal"
                 android:visibility="gone"
-                android:text="搜素中。。"
-                android:textColor="#ffffff"
-                android:textSize="25dp"/>
+                android:layout_marginBottom="5dp">
+
+                <Button
+                    android:layout_marginLeft="20dp"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:onClick="tj"
+                    android:background="@drawable/add2"
+                    android:textColor="#ffff"
+                    />
+
+                <TextView
+                    android:id="@+id/edit_text"
+                    android:layout_marginLeft="90dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:text="搜素中。。"
+                    android:textColor="#ffffff"
+                    android:textSize="25dp"/>
+            </LinearLayout>
+
         </LinearLayout>
 
     </LinearLayout>
@@ -70,7 +119,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:background="#6f002966"
+
         >
 
 
@@ -136,7 +185,6 @@
         android:visibility="gone"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#7b002966"
         android:orientation="vertical"
 
         android:padding="15dp">

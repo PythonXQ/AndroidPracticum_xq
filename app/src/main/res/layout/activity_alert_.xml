@@ -4,17 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Main_Activity"
-    android:orientation="vertical"
+    tools:context=".alert_Activity" android:orientation="vertical"
     android:background="@drawable/previe_default_themes_1">
 
+    <include layout="@layout/title_2"/>
+
     <android.support.v4.view.ViewPager
-        android:id="@+id/viewpage"
+        android:id="@+id/alert_viewpage"
         android:layout_weight="1"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
     </android.support.v4.view.ViewPager>
-
-    <include layout="@layout/bottom"/>
 
 </LinearLayout>

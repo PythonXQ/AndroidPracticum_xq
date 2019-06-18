@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".air_Activity"
+    android:orientation="vertical"
+    android:background="@drawable/previe_default_themes_1">
+
+    <include layout="@layout/title_2"/>
+
+    <!--搜索框-->
+    <LinearLayout
+        android:id="@+id/air_lin"
+        android:layout_width="match_parent"
+        android:layout_height="600dp"
+        android:layout_marginTop="40dp"
+        android:orientation="vertical"
+        android:visibility="visible"
+        android:gravity="center">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/suosuoda1"/>
+
+        <EditText
+
+            android:layout_marginTop="20dp"
+            android:textSize="20dp"
+            android:id="@+id/air_edit"
+
+            android:layout_width="380dp"
+            android:layout_height="50dp"
+            android:hint="请输入城市名"
+            />
+
+        <!--搜索按钮-->
+        <LinearLayout
+            android:background="@drawable/border"
+            android:layout_marginTop="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:onClick="sousuoair">
+
+            <ImageView
+
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:background="@drawable/sousu"
+
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="搜索"
+                android:textColor="#ffff"
+                android:textSize="18dp"/>
+
+        </LinearLayout>
+
+    <!--搜索框-->
+    </LinearLayout>
+
+
+    <!--结果展示框-->
+    <LinearLayout
+        android:visibility="gone"
+        android:id="@+id/air_lin2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_marginTop="40dp"
+        android:layout_marginLeft="60dp"
+        >
+
+        <TextView
+            android:id="@+id/air_city"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#ffff"
+            android:text="城市：上海"
+            android:textSize="40dp"
+            android:layout_marginTop="10dp"
+            />
+
+        <TextView
+            android:id="@+id/air_PM25"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#ffff"
+            android:text="PM2.5指数(ug/m3)：73"
+            android:textSize="20dp"
+            android:layout_marginTop="10dp"
+            />
+        <TextView
+            android:id="@+id/air_AQI"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#ffff"
+            android:text="空气质量指数：98"
+            android:textSize="20dp"
+            android:layout_marginTop="10dp"
+            />
+        <TextView
+            android:layout_marginTop="10dp"
+            android:id="@+id/air_quality"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#ffff"
+            android:text="空气质量指数：右"
+            android:textSize="20dp"
+
+            />
+        <TextView
+            android:id="@+id/air_PM10"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#ffff"
+            android:text="PM10(ug/m3)：50"
+            android:textSize="20dp"
+            android:layout_marginTop="10dp"
+            />
+
+        <TextView
+            android:id="@+id/air_CO"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#ffff"
+            android:text="一氧化碳(mg/m3)：0.79"
+            android:textSize="20dp"
+            android:layout_marginTop="10dp"
+            />
+        <TextView
+            android:id="@+id/air_NO2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#ffff"
+            android:text="二氧化氮(ug/m3)：65"
+            android:textSize="20dp"
+            android:layout_marginTop="10dp"
+            />
+        <TextView
+            android:layout_marginTop="10dp"
+            android:id="@+id/air_O3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#ffff"
+            android:text="臭氧(ug/m3)：41"
+            android:textSize="20dp"
+
+            />
+
+        <TextView
+            android:id="@+id/air_SO2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#ffff"
+            android:text="二氧化硫(ug/m3)：41"
+            android:textSize="20dp"
+            android:layout_marginTop="10dp"
+            />
+
+        <TextView
+            android:paddingTop="50dp"
+            android:id="@+id/air_time"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#ffff"
+            android:text="更新时间：2014-12-26 11:48:40"
+            android:textSize="15dp"
+            android:layout_marginTop="10dp"
+            />
+
+
+
+    </LinearLayout>
+
+
+</LinearLayout>

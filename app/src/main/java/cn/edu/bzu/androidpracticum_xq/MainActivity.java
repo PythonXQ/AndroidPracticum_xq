@@ -90,14 +90,14 @@ public class MainActivity extends ActivityGroup {
         setPermission();//动态权限
         map();//定位
         //initData("滨州市");
-        getHour();//根据时间换背景
+
     }
 
     public void sx(View v){
         ImageButton sx = findViewById(R.id.sx);
         map();//定位
         //initData("滨州市");
-        getHour();//根据时间换背景
+
 
         //图片旋转
         Animation anim =new RotateAnimation(0f, 2880f, Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f);
@@ -113,59 +113,7 @@ public class MainActivity extends ActivityGroup {
 
 
 
-    //随机改变背景
-    private void getHour() {
-        int x=1+(int)(Math.random()*14);
-        Log.i("cs", String.valueOf(x));
-        switch (x){
-            case 1:
-                back.setBackgroundDrawable(ContextCompat.getDrawable(this, R.drawable.previe_default_themes_1));
-                break;
-            case 2:
-                back.setBackgroundDrawable(ContextCompat.getDrawable(this, R.drawable.previe_default_themes_2));
-                break;
-            case 3:
-                back.setBackgroundDrawable(ContextCompat.getDrawable(this, R.drawable.previe_default_themes_3));
-                break;
-            case 4:
-                back.setBackgroundDrawable(ContextCompat.getDrawable(this, R.drawable.previe_default_themes_4));
-                break;
-            case 5:
-                back.setBackgroundDrawable(ContextCompat.getDrawable(this, R.drawable.previe_default_themes_5));
-                break;
-            case 6:
-                back.setBackgroundDrawable(ContextCompat.getDrawable(this, R.drawable.previe_default_themes_6));
-                break;
-            case 7:
-                back.setBackgroundDrawable(ContextCompat.getDrawable(this, R.drawable.previe_default_themes_7));
-                break;
-            case 8:
-                back.setBackgroundDrawable(ContextCompat.getDrawable(this, R.drawable.previe_default_themes_8));
-                break;
-            case 9:
-                back.setBackgroundDrawable(ContextCompat.getDrawable(this, R.drawable.previe_default_themes_9));
-                break;
-            case 10:
-                back.setBackgroundDrawable(ContextCompat.getDrawable(this, R.drawable.previe_default_themes_10));
-                break;
-            case 11:
-                back.setBackgroundDrawable(ContextCompat.getDrawable(this, R.drawable.previe_default_themes_11));
-                break;
-            case 12:
-                back.setBackgroundDrawable(ContextCompat.getDrawable(this, R.drawable.previe_default_themes_12));
-                break;
-            case 13:
-                back.setBackgroundDrawable(ContextCompat.getDrawable(this, R.drawable.previe_default_themes_13));
-                break;
-            case 14:
-                back.setBackgroundDrawable(ContextCompat.getDrawable(this, R.drawable.previe_default_themes_14));
-                break;
-            default:
-                back.setBackgroundDrawable(ContextCompat.getDrawable(this, R.drawable.previe_default_themes_1));
-                break;
-        }
 
-    }
 
     //初始化控件
     public void init() {
