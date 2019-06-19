@@ -33,14 +33,18 @@
                 android:id="@+id/edit_lin"
                 android:layout_width="match_parent"
                 android:layout_height="600dp"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="60dp"
                 android:orientation="vertical"
                 android:gravity="center">
 
                 <ImageView
+                    android:layout_marginBottom="20dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@drawable/suosuoda1"/>
+
+
+
 
                 <EditText
 
@@ -60,7 +64,7 @@
                     android:orientation="vertical"
                     android:gravity="center"
                     android:onClick="sousuo"
-                    android:background="@drawable/border">
+                    >
                     <ImageView
 
                         android:layout_width="45dp"
@@ -76,6 +80,14 @@
                         android:textSize="18dp"/>
                 </LinearLayout>
 
+
+                <pl.droidsonroids.gif.GifImageView
+                    android:layout_marginTop="70dp"
+                    android:id="@+id/gifImgView"
+                    android:layout_width="match_parent"
+                    android:layout_height="180dp"
+                    android:visibility="visible"
+                    android:background="@drawable/timg"/>
 
 
             </LinearLayout>

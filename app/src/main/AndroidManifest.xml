@@ -19,7 +19,14 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.NoActionBar"
         android:usesCleartextTraffic="true">
-        <activity android:name=".alert_Activity"></activity>
+        <activity android:name=".Main2Activity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".alert_Activity" />
         <activity android:name=".air_Activity" />
         <activity android:name=".water_Activity" />
 
@@ -30,11 +37,7 @@
         <activity android:name=".Right_Activity" />
         <activity android:name=".Left_Activity" />
         <activity android:name=".Main_Activity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
     </application>
 

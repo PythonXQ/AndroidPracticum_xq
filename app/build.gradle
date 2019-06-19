@@ -4,7 +4,7 @@ android {
     compileSdkVersion 28
     defaultConfig {
         applicationId "cn.edu.bzu.androidpracticum_xq"
-        minSdkVersion 15
+        minSdkVersion 17
         targetSdkVersion 28
         versionCode 1
         versionName "1.0"
@@ -30,4 +30,5 @@ dependencies {
     implementation files('libs/android-smart-image-view-1.0.0.jar')
     implementation files('libs/httpcore-4.4.4.jar')
     implementation 'com.google.code.gson:gson:2.2.4'
+    implementation 'pl.droidsonroids.gif:android-gif-drawable:1.2.17'
 }

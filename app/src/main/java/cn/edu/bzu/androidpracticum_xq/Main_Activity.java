@@ -2,18 +2,16 @@ package cn.edu.bzu.androidpracticum_xq;
 
 import android.Manifest;
 import android.content.Context;
-import android.content.ContextWrapper;
+
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Build;
-import android.os.Handler;
-import android.os.Message;
+
 import android.support.annotation.RequiresApi;
 import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.ContextCompat;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
@@ -43,6 +41,7 @@ import org.apache.http.Header;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.IOException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -53,7 +52,7 @@ import cn.edu.bzu.androidpracticum_xq.Controller.Mian;
 import cn.edu.bzu.androidpracticum_xq.entity.ResultBean;
 import cn.edu.bzu.androidpracticum_xq.entity.WeatherToday;
 import cn.edu.bzu.androidpracticum_xq.Controller.Liseview_SPQ;
-import cn.edu.bzu.androidpracticum_xq.until.NoScrollListview;
+
 
 public class Main_Activity extends AppCompatActivity {
 
@@ -63,6 +62,8 @@ public class Main_Activity extends AppCompatActivity {
     private List<ResultBean> weatherlist;
     private List<ResultBean> weatherlist_edit;
     private List<Integer> backDra_list;
+
+
 
     private TextView text_temperature;
     private TextView text_weather;
@@ -102,6 +103,8 @@ public class Main_Activity extends AppCompatActivity {
     private JSONObject result;
 
 
+
+    @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -114,6 +117,7 @@ public class Main_Activity extends AppCompatActivity {
         main = inflater.inflate(R.layout.activity_main, null);
         list = inflater.inflate(R.layout.activity_future_list, null);
         edit = inflater.inflate(R.layout.activity_edit, null);
+
 
         ImageView imageView = findViewById(R.id.d_center);
         imageView.setBackgroundResource(R.drawable.tianqi1_1);
@@ -186,9 +190,9 @@ public class Main_Activity extends AppCompatActivity {
 
     }
 
-    //导航栏左按钮
-    @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
+
     public void left(View view) {
+
         Intent intent = new Intent(this, Left_Activity.class);
         startActivity(intent);
         overridePendingTransition(0, 0);
