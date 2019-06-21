@@ -9,23 +9,13 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.google.gson.Gson;
-import com.google.gson.JsonArray;
 import com.loopj.android.http.AsyncHttpClient;
-import com.loopj.android.http.AsyncHttpRequest;
 import com.loopj.android.http.JsonHttpResponseHandler;
 
 import org.apache.http.Header;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-
-import java.util.ArrayList;
-import java.util.List;
-
-import cn.edu.bzu.androidpracticum_xq.Controller.Edit;
-import cn.edu.bzu.androidpracticum_xq.entity.ResultBean;
-import cn.edu.bzu.androidpracticum_xq.entity.WaterResult;
 
 public class air_Activity extends AppCompatActivity {
 

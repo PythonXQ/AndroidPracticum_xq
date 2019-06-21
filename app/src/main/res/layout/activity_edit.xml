@@ -15,25 +15,24 @@
     android:id="@+id/back"
     >
 
-    <!--搜索框-->
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         >
 
         <LinearLayout
-
+            android:visibility="visible"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:gravity="center">
 
             <LinearLayout
-
                 android:id="@+id/edit_lin"
                 android:layout_width="match_parent"
                 android:layout_height="600dp"
-                android:layout_marginTop="60dp"
+                android:layout_marginTop="40dp"
                 android:orientation="vertical"
                 android:gravity="center">
 
@@ -42,10 +41,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@drawable/suosuoda1"/>
-
-
-
-
                 <EditText
 
                     android:layout_marginTop="20dp"
@@ -82,14 +77,13 @@
 
 
                 <pl.droidsonroids.gif.GifImageView
-                    android:layout_marginTop="70dp"
+                    android:layout_marginTop="170dp"
+                    android:layout_marginLeft="120dp"
                     android:id="@+id/gifImgView"
-                    android:layout_width="match_parent"
-                    android:layout_height="180dp"
+                    android:layout_width="140dp"
+                    android:layout_height="80dp"
                     android:visibility="visible"
                     android:background="@drawable/timg"/>
-
-
             </LinearLayout>
 
             <LinearLayout
@@ -239,5 +233,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
     </ListView>
+
+
 </LinearLayout>
 </ScrollView>

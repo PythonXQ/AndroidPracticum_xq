@@ -3,15 +3,14 @@ package cn.edu.bzu.androidpracticum_xq;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Handler;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class Main2Activity extends Activity {
+public class QiDong_Activity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main2);
+        setContentView(R.layout.activity_qidong);
 
         Integer time = 2500;    //设置等待时间，单位为毫秒
         Handler handler = new Handler();
@@ -19,8 +18,8 @@ public class Main2Activity extends Activity {
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
-                startActivity(new Intent(Main2Activity.this, Main_Activity.class));
-                Main2Activity.this.finish();
+                startActivity(new Intent(QiDong_Activity.this, Main_Activity.class));
+                QiDong_Activity.this.finish();
             }
         }, time);
     }

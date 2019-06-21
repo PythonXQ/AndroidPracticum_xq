@@ -29,9 +29,7 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
-import android.widget.ScrollView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.loopj.android.http.AsyncHttpClient;
@@ -41,14 +39,12 @@ import org.apache.http.Header;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.IOException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import cn.edu.bzu.androidpracticum_xq.Controller.Mian;
 import cn.edu.bzu.androidpracticum_xq.entity.ResultBean;
 import cn.edu.bzu.androidpracticum_xq.entity.WeatherToday;
 import cn.edu.bzu.androidpracticum_xq.Controller.Liseview_SPQ;
@@ -126,6 +122,7 @@ public class Main_Activity extends AppCompatActivity {
         ImageView imageView2 = findViewById(R.id.d_left);
         imageView2.setBackgroundResource(R.drawable.qita1);
 
+        //将子界面添加到List对象里
         viewList = new ArrayList<View>();
         viewList.add(edit);
         viewList.add(main);
@@ -227,13 +224,10 @@ public class Main_Activity extends AppCompatActivity {
         edit_text.setVisibility(View.VISIBLE);
         edit_lin1.setVisibility(View.VISIBLE);
         edit_lin2.setVisibility(View.VISIBLE);
-
-
     }
 
     //添加城市
     public void tj(View view) {
-
         initE();
         LinearLayout edit_lin = edit.findViewById(R.id.edit_lin);
         LinearLayout edit_lin1 = edit.findViewById(R.id.line1);
@@ -354,15 +348,12 @@ public class Main_Activity extends AppCompatActivity {
 
     //逆地址解析
     private void MapData(double mp1, double mp2) {
-        // 创建客户端对象
         AsyncHttpClient client = new AsyncHttpClient();
         String url = "https://apis.map.qq.com/ws/geocoder/v1/?location=" + mp2 + "," + mp1 + "&get_poi=1&key=BVFBZ-GONCF-E5ZJT-NMO5Y-SQR65-JDFCH";
-        //Toast.makeText(this, "定位发送请求到服务器", Toast.LENGTH_LONG).show();
         client.get(url, new JsonHttpResponseHandler() {
             //返回JSONObject对象|JSONOArray对象
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
-
                 Log.i("cs", "定位地址发送成功");
                 int status = 0;
                 try {
@@ -501,25 +492,17 @@ public class Main_Activity extends AppCompatActivity {
 
     //编辑解析天气
     private void initDataEdit(final String city) {
-        // 创建客户端对象
         String url = "http://v.juhe.cn/weather/index?cityname=" + city + "&key=298d8853c0f623689fd2f8b66c335f9c";
-
-
         AsyncHttpClient client = new AsyncHttpClient();
-        //Toast.makeText(this, "天气发送请求到服务器", Toast.LENGTH_LONG).show();
         client.get(url, new JsonHttpResponseHandler() {
             //返回JSONObject对象||JSONOArray对象
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
                 // TODO Auto-generated method stub
-
-                Log.i("cs", "天气信息" + String.valueOf(response));
                 try {
-                    Log.i("cs", "天气状态码：" + String.valueOf(response.getInt("resultcode")));
                     int resu = response.getInt("resultcode");
                     if (resu == 200) {
                         JSONObject result = response.getJSONObject("result");
-
                         //解析实时天气
                         JSONObject sk = result.getJSONObject("sk");
                         edit_temp.setText(sk.getString("temp") + "°");
@@ -527,51 +510,36 @@ public class Main_Activity extends AppCompatActivity {
                         edit_wind_strength.setText("风速：" + sk.getString("wind_strength"));
                         edit_humidity.setText("湿度：" + sk.getString("humidity"));
                         edit_time.setText(sk.getString("time") + " 更新");
-
                         //解析当天天气
                         JSONObject today = result.getJSONObject("today");
                         String strday = String.valueOf(today);
-                        Log.i("cs", "today：" + strday);
                         Gson gson = new Gson();
                         WeatherToday weatherToday = gson.fromJson(strday, WeatherToday.class);
-
                         edit_temperature.setText("今日温度：" + weatherToday.getTemperature());
                         edit_weather.setText("今日天气：" + weatherToday.getWeather());
                         edit_wind.setText("风向风速：" + weatherToday.getWind());
                         edit_dressing_advice.setText("穿衣建议：" + weatherToday.getDressing_advice());
-
-
                         //因为有些数据的返回值为空，所以需要隐藏控件
                         if (TextUtils.isEmpty(weatherToday.getDressing_advice())) {
                             edit_dressing_advice.setVisibility(View.GONE);
                         }
-
                         //解析未来七天的天气
                         JSONObject future = result.getJSONObject("future");
                         DateFormat bf = new SimpleDateFormat("yyyyMMdd");
                         String format = bf.format(date);//格式化 bf.format(date);
                         System.out.println(format);
                         Log.i("cs", format);
-
                         int dateint = Integer.valueOf(format);
-
                         weatherlist_edit = new ArrayList<ResultBean>();
                         for (int i = 1; i <= 5; i++) {
                             dateint += 1;
-                            Log.i("cs", String.valueOf(dateint));
                             String strdate = "day_" + dateint;
-                            Log.i("cs", strdate);
                             JSONObject a = future.getJSONObject(strdate);
-                            Log.i("cs", String.valueOf(a));
                             String astr = String.valueOf(a);
                             ResultBean account = (ResultBean) new Gson().fromJson(astr, ResultBean.class);
-
-                            Log.i("cs", account.toString());
                             weatherlist_edit.add(account);
                             ListView lvNews = edit.findViewById(R.id.lv_news);
-
                             lvNews.setAdapter(new Liseview_SPQ(weatherlist_edit, Main_Activity.this));
-
                         }
                     }
                 } catch (JSONException e) {

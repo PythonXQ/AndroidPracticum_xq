@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity"
     android:orientation="vertical"
-
     android:id="@+id/back"
     >
 
@@ -14,17 +12,7 @@
 
 
 
-    <!--日期-->
-    <LinearLayout
-        android:layout_marginTop="30dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginLeft="50dp">
 
-
-
-    </LinearLayout>
     <!--当天天气-->
     <LinearLayout
         android:layout_width="match_parent"
@@ -209,19 +197,40 @@
                     android:textSize="20dp"/>
             </LinearLayout>
         </LinearLayout>
+    </LinearLayout>
 
-        <!--"dressing_index": "较冷", /*穿衣指数*/
-            "dressing_advice": "建议着大衣、呢外套加毛衣、卫衣等服装。",	/*穿衣建议*/
-            "uv_index": "中等",	/*紫外线强度*/
-            "comfort_index": "",/*舒适度指数*/
-            "wash_index": "较适宜",	/*洗车指数*/
-            "travel_index": "适宜",	/*旅游指数*/
-            "exercise_index": "较适宜",	/*晨练指数*/
-            "drying_index": ""/*干燥指数*/-->
+    <LinearLayout
+        android:layout_marginTop="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center">
+
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="20dp"
+
+            android:textSize="20dp"
+            android:gravity="center"
+            android:drawableLeft="@drawable/dang1"/>
+
+        <TextView
+            android:layout_marginLeft="260dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20dp"
+            android:gravity="center"
+            android:drawableRight="@drawable/daohang2"/>
+
+
 
     </LinearLayout>
 
-
+    <pl.droidsonroids.gif.GifImageView
+       android:layout_marginTop="10dp"
+        android:layout_marginLeft="280dp"
+        android:layout_width="120dp"
+        android:layout_height="70dp"
+        android:background="@drawable/jzg1"/>
 
 
 

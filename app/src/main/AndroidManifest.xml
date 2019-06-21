@@ -19,7 +19,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.NoActionBar"
         android:usesCleartextTraffic="true">
-        <activity android:name=".Main2Activity">
+        <activity android:name=".QiDong_Activity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
